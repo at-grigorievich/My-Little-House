@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MoveSpeed>k__BackingField: 5
   <RotateSensivity>k__BackingField: 100
+  <InventoryCapacity>k__BackingField: 9
+  <RayLength>k__BackingField: 1.5

@@ -1,5 +1,4 @@
-﻿using System;
-using ATG.Data;
+﻿using ATG.Data;
 using UnityEngine;
 
 namespace ATG
@@ -8,14 +7,11 @@ namespace ATG
     {
         [SerializeField] private ItemData _myData;
         
-        public Sprite DoPick()
+        public ItemVisualizeData DoPick()
         {
-            gameObject.SetActive(false);
-
-            if (_myData.ItemSprite == null)
-                throw new NullReferenceException($"Sprite is null! {_myData.name}");
-            
-            return _myData.ItemSprite;
+            return _myData.VisualizeData;
         }
+
+        public void Disable() => gameObject.SetActive(false);
     }
 }

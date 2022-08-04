@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ATG
 {
@@ -13,39 +14,42 @@ namespace ATG
         
         private CharacterControl _movementControl;
         private CharacterControl _rotateControl;
+        private CharacterDetector _detector;
 
-        private InputService _inputService;
-        
+        public InputService InputService { get; private set; }
+
+        public IDetectableShower DetectableShower => _detector;
+
         private void Awake()
         {
-            _inputService = new InputService();
+            InputService = new InputService();
             _controller = GetComponent<CharacterController>();
 
             _camera = Camera.main;
 
-            _rotateControl = new CharacterRotate(_inputService, _controller,_data, _camera);
-            _movementControl = new CharacterMovement(_inputService, _controller, _data);
-        }
-
-        private void Start()
-        {
+            if (_camera == null)
+                throw new NullReferenceException("Cant find camera !");
             
-            Cursor.visible = false;
+            _rotateControl = new CharacterRotate(InputService, transform,_data, _camera);
+            _movementControl = new CharacterMovement(InputService, _controller, _data);
+            _detector = new CharacterDetector(InputService, _camera.transform, _data);
         }
 
         private void Update()
         {
             _movementControl.Update();
             _rotateControl.Update();
+            _detector.Update();
         }
 
         private void OnEnable()
         {
-            _inputService.Enable();
+            InputService.Enable();
         }
+        
         private void OnDisable()
         {
-            _inputService.Disable();
+            InputService.Disable();
         }
     }
 }

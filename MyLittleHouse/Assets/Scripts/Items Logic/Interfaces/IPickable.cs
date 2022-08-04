@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using ATG.Data;
 
 namespace ATG
 {
     public interface IPickable
     {
-        Sprite DoPick();
+        ItemVisualizeData DoPick();
+        void Disable();
     }
 }

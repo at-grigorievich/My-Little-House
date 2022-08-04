@@ -15,13 +15,15 @@ namespace ATG
 
         public float VertRot=> RotateAxis.y;
         public float HorRot => RotateAxis.x;
-        
-        public event Action OnPressPick;
+
+        public event Action OnPressInventory;
+        public bool IsPressPick => _input.Player.Pick.IsPressed();
         
         public InputService()
         {
             _input = new PlayerInput();
-            _input.Player.Pick.performed += context => OnPressPick?.Invoke();
+
+            _input.Player.Inventory.performed += context => OnPressInventory?.Invoke();
         }
 
         public void Enable() => _input.Enable();

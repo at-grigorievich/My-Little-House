@@ -5,9 +5,14 @@ namespace ATG
     public class CharacterMovement: CharacterControl
     {
         private const float Gravity = -9.8f;
-        
-        public CharacterMovement(InputService input, CharacterController character, CharacterData data) 
-            : base(input, character,data) {}
+
+        private readonly CharacterController _character;
+
+        public CharacterMovement(InputService input, CharacterController character, CharacterData data)
+            : base(input, character.transform, data)
+        {
+            _character = character;
+        }
 
         public override void Update()
         {

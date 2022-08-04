@@ -10,8 +10,8 @@ namespace ATG
 
         private float _curVertRot;
         
-        public CharacterRotate(InputService input, CharacterController character, 
-            CharacterData data,Camera camera) : base(input, character,data)
+        public CharacterRotate(InputService input, Transform character, 
+            CharacterData data,Camera camera) : base(input,character,data)
         {
             _minVertical = -80f;
             _maxVertical = 80f;

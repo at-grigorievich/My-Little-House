@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Dynamite
   m_EditorClassIdentifier: 
   <ItemPrefab>k__BackingField: {fileID: 2009681460647495768, guid: f4821b12c54223441ad59c969bdca502, type: 3}
-  <ItemSprite>k__BackingField: {fileID: 21300000, guid: f74db73cdb2af0e4c9a3dc1c96c5064a, type: 3}
+  <VisualizeData>k__BackingField:
+    <SrcSprite>k__BackingField: {fileID: 21300000, guid: f74db73cdb2af0e4c9a3dc1c96c5064a, type: 3}
+    <SrcAbout>k__BackingField: Boom item !

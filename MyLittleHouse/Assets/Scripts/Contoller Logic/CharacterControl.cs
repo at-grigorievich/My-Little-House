@@ -6,19 +6,16 @@ namespace ATG
     {
         protected readonly InputService _input;
         protected readonly CharacterData _characterData;
-        
-        protected readonly CharacterController _character;
 
         protected readonly Transform _objTransform;
 
-        public CharacterControl(InputService input,CharacterController character, CharacterData data)
+        protected CharacterControl(InputService input,Transform objTransform, CharacterData data)
         {
             _input = input;
-            _character = character;
 
             _characterData = data;
             
-            _objTransform = _character.transform;
+            _objTransform = objTransform;
         }
 
         public abstract void Update();
