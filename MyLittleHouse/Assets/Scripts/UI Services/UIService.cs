@@ -35,6 +35,8 @@ namespace ATG
             
             _onOpenInventory = OpenInventory;
             _character.InputService.OnPressInventory += () => _onOpenInventory?.Invoke();
+
+            Cursor.visible = false;
         }
 
         private void OpenInventory()
@@ -44,6 +46,8 @@ namespace ATG
             
             _inventoryVisualizator.SetEnable(true);
             _onOpenInventory = CloseInventory;
+
+            Cursor.visible = true;
         }
 
         private void CloseInventory()
@@ -53,6 +57,8 @@ namespace ATG
             
             _inventoryVisualizator.SetEnable(false);
             _onOpenInventory = OpenInventory;
+
+            Cursor.visible = false;
         }
     }
 }
